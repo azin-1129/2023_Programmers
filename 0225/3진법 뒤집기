@@ -1,0 +1,26 @@
+def solution(n):
+    leng=0 # 3진법 자릿수
+    res=0
+    
+    while True:
+        if 3**leng>n:
+            if 3**leng==n:
+                leng-=1
+                break
+            break
+        leng+=1
+        
+    s=[0]*leng
+    
+    for i in range(1,leng+1):
+        s[i-1]=n//3**(leng-i)
+        n%=3**(leng-i)
+        
+    s.reverse()
+    
+    for i in range(leng):
+        res+=s[i]*(3**(leng-1-i))
+        #print(s[i],'*',(3**(3-i)),=,res)
+        
+    answer = res
+    return answer
